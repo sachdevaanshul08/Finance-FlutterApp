@@ -59,15 +59,13 @@ class _MyHomePageState extends State<MyHomePage> {
     //get your cards here form webservice
     _cardList.add(ReusedCard(
         cardData: CardData(
-            color: 0XFF18284B,
             cardType: "VISA",
             cardNumber: "**** **** **** 4897",
             individualName: "Anshul Sachdeva",
             date: "08/22",
-            cvv: "826")));
+            cvv: "123")));
     _cardList.add(ReusedCard(
       cardData: CardData(
-          color: 0xFFAD1457,
           cardType: "MasterCard",
           cardNumber: "**** **** **** **** 9999",
           individualName: "Bohemia",
@@ -118,24 +116,21 @@ class _MyHomePageState extends State<MyHomePage> {
                         ],
                       ),
                       SizedBox(
-                        height: 10,
+                        height: 15,
                       ),
                       Text(
                         "My cards",
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 20,
-                            fontWeight: FontWeight.w900),
-                      ),
-                      SizedBox(
-                        height: 20,
+                            fontWeight: FontWeight.w700),
                       ),
                     ],
                   ),
                 ),
                 Positioned(
-                  top: 150,
-                  height: 190,
+                  top: 160,
+                  height: 210,
                   width: MediaQuery.of(context).size.width,
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -153,7 +148,9 @@ class _MyHomePageState extends State<MyHomePage> {
                           color: primaryColor,
                         ),
                       ),
-                      SizedBox(width: 10,),
+                      SizedBox(
+                        width: 10,
+                      ),
                       Flexible(
                         child: Column(
                           children: <Widget>[
@@ -165,6 +162,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                       _current = index;
                                     });
                                   }),
+                            ),
+                            SizedBox(
+                              height: 15,
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -178,8 +178,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                   decoration: BoxDecoration(
                                     shape: BoxShape.circle,
                                     color: _current == index
-                                        ? Color.fromRGBO(0, 0, 0, 0.9)
-                                        : Color.fromRGBO(0, 0, 0, 0.4),
+                                        ? primaryColor
+                                        : Colors.grey.shade400,
                                   ),
                                 );
                               }).toList(),
@@ -195,7 +195,89 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           Expanded(
             flex: 7,
-            child: Container(),
+            child: Padding(
+              padding: EdgeInsets.only(
+                left: 20,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  Text(
+                    "Popular Categories",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w900),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    children: <Widget>[
+                      RawMaterialButton(
+                        elevation: 10,
+                        child: Column(
+                          children: <Widget>[
+                            Icon(
+                              Icons.payment,
+                              color: Colors.white,
+                            ),
+                            Text(
+                              "Bills",
+                              style: TextStyle(
+                                color: Color(0XFFB3FFFFFF),fontWeight: FontWeight.bold
+                              ),
+                            )
+                          ],
+                        ),
+                        onPressed: () {},
+                        fillColor: pinkThemeColor,
+                        padding:
+                            EdgeInsets.symmetric(vertical: 30, horizontal: 50),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20)),
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      RawMaterialButton(
+                        elevation: 10,
+                        child: Column(
+                          children: <Widget>[
+                            Icon(
+                              Icons.fastfood,
+                              color: primaryColor,
+                            ),
+                            Text(
+                              "Food",
+                              style: TextStyle(
+                                color: Colors.black,fontWeight: FontWeight.bold
+                              ),
+                            )
+                          ],
+                        ),
+                        onPressed: () {},
+                        fillColor: Colors.white,
+                        padding:
+                            EdgeInsets.symmetric(vertical: 30, horizontal: 50),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20)),
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Text(
+                    "Latest Transactions",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w900),
+                  ),
+                ],
+              ),
+            ),
           )
         ],
       ),

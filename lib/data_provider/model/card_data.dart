@@ -1,5 +1,4 @@
 class CardData {
-  int color;
   String cardType;
   String cardNumber;
   String individualName;
@@ -7,7 +6,7 @@ class CardData {
   String cvv;
 
   CardData(
-      {this.color,
+      {
       this.cardType,
       this.cardNumber,
       this.individualName,
